@@ -1,4 +1,25 @@
 #container {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+  margin: auto;
+  padding: 0px;
+  border: 5px solid blue;
+  width: 960px;
+  height: 960px;
+}
+
+.resetBtnStyle {
+  width: 80px;
+  height: 50px;
+  margin: auto;
+  text-align: center;
+}
+
+.resetBtnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hover {
+  background-color: black;
 }
