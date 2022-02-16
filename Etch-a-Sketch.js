@@ -20,9 +20,13 @@ const makeNewGrid = function() {
   container.style.gridTemplateColumns = `repeat(${gridSize}, auto)`;
   for(let gridItems = 0; gridItems < gridSize ** 2; gridItems++) {
     const makeDiv = document.createElement("div");
+    let blackValue = 0.1;
     const getColor = function() {
-      makeDiv.style.backgroundColor = `rgb(${getRandNum()}, ${getRandNum()}, ${getRandNum()})`;
-      makeDiv.removeEventListener("mouseover", getColor);
+      makeDiv.style.backgroundColor = `rgba(0, 0, 0, ${blackValue})`;
+      blackValue += 0.1;
+      if(blackValue === 1) {
+        makeDiv.removeEventListener("mouseover", getColor);
+      }
     }
     makeDiv.addEventListener("mouseover", getColor);
     container.appendChild(makeDiv);
