@@ -11,13 +11,20 @@ btnContainer.appendChild(resetBtn);
 btnContainer.classList.add("resetBtnContainer");
 document.body.prepend(btnContainer);
 
+const getRandNum = function() {
+  let randNumRGB = Math.floor(Math.random() * 255);
+  return randNumRGB;
+}
+
 const makeNewGrid = function() {
   container.style.gridTemplateColumns = `repeat(${gridSize}, auto)`;
   for(let gridItems = 0; gridItems < gridSize ** 2; gridItems++) {
     const makeDiv = document.createElement("div");
-    makeDiv.onmouseover = function() {
-      makeDiv.classList.add("hover");
+    const getColor = function() {
+      makeDiv.style.backgroundColor = `rgb(${getRandNum()}, ${getRandNum()}, ${getRandNum()})`;
+      makeDiv.removeEventListener("mouseover", getColor);
     }
+    makeDiv.addEventListener("mouseover", getColor);
     container.appendChild(makeDiv);
   }
 }
